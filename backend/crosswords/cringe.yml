@@ -1,0 +1,42 @@
+rows: 
+    - "12345"
+    - 6----
+    - -.-.-
+    - -.-.-
+    - 7----
+answers: 
+    across: 
+        -
+            key: 1
+            clue: text encoding
+            answer: ASCII
+        - 
+            key: 6
+            clue: lovable ogre
+            answer: SHREK
+        -
+            key: 7 
+            clue: Japanese meme dog
+            answer: DOGES 
+
+    down: 
+        -
+            key: 1 
+            clue: a modded minecraft block 
+            answer: ASNAD
+        -  
+            key: 2 
+            clue: "quiet!"
+            answer: SH
+        -
+            key: 3
+            clue: cringe
+            answer: CRING
+        -
+            key: 4 
+            clue: latin for "as in" 
+            answer: IE
+        -
+            key: 5 
+            clue: rare spelling of a synonym for idols
+            answer: IKONS

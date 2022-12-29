@@ -1,0 +1,10 @@
+{
+   "name": "@crossword/db",
+   "version": "1.0.0",
+   "type": "module",
+   "main": "index.ts",
+   "dependencies": {},
+   "devDependencies": {
+      "sqlite3": "^5.0.5"
+   }
+}

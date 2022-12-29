@@ -1,0 +1,33 @@
+{
+  "name": "@crossword/backend",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@crossword/config": "1.0.0",
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/typed-document-node": "^2.2.8",
+    "apollo-server-core": "^3.6.7",
+    "apollo-server-express": "^3.6.7",
+    "express": "^4.17.3",
+    "fs": "^0.0.1-security",
+    "graphql": "^16.3.0",
+    "https": "^1.0.0",
+    "js-yaml": "^4.1.0",
+    "oracledb": "^5.3.0",
+    "ts-node-dev": "^1.1.8",
+    "typeorm": "^0.3.6",
+    "typescript": "^4.6.3"
+  },
+  "scripts": {
+    "start": "ts-node-dev app.ts",
+    "start:prod": "ts-node --transpile-only app.ts",
+    "build": "tsc --build ./app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "graphql-codegen --config codegen.yml"
+  },
+  "devDependencies": {
+    "@graphql-codegen/introspection": "2.1.1",
+    "@graphql-codegen/typescript": "2.4.8",
+    "@graphql-codegen/typescript-resolvers": "2.6.1"
+  }
+}

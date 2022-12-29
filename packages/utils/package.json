@@ -1,0 +1,7 @@
+{
+    "name": "@crossword/utils",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "index.ts"
+}
+  

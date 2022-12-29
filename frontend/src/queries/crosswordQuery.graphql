@@ -1,0 +1,25 @@
+query Crossword {
+  crossword {
+     name
+     grid {
+       dimension
+       points {
+         x
+         y
+         value
+      }
+    }
+    answers {
+      across {
+        key 
+        clue
+        answer
+      }
+      down {
+        key 
+        clue
+        answer
+      }
+    }
+  }
+}

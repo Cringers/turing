@@ -1,0 +1,63 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Terraform Apply
+
+# Controls when the workflow will run
+on:
+   # Triggers the workflow on push or pull request events but only for the main branch
+   push:
+      branches:
+         - main
+      paths:
+         - terraform/infrastructure/**
+
+   # Allows you to run this workflow manually from the Actions tab
+   workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+   # This workflow contains a single job called "build"
+   RemoveTestStack:
+      # The type of runner that the job will run on
+      runs-on: ubuntu-latest
+      env:
+         TERM: xterm-256color
+      environment: Production
+
+      steps:
+         - name: oci-cli
+           uses: bytesbay/oci-cli-action@v1.0.2
+           with:
+              user: '${{ secrets.OCI_USER }}'
+              fingerprint: '${{ secrets.OCI_FINGERPRINT }}'
+              tenancy: '${{ secrets.OCI_TENANCY }}'
+              region: '${{ secrets.OCI_REGION }}'
+              api_key: |
+                 ${{ secrets.OCI_API_KEY }}
+              verbose: true
+
+         - name: Download artifact
+           uses: dawidd6/action-download-artifact@v2
+           with:
+              # Required, workflow file name or ID
+              workflow: terraformplan.yml
+              # Optional, the status or conclusion of a completed workflow to search for
+              # Can be one of a workflow conclusion:
+              #   "failure", "success", "neutral", "cancelled", "skipped", "timed_out", "action_required"
+              # Or a workflow status:
+              #   "completed", "in_progress", "queued"
+              workflow_conclusion: success
+              # Optional, will get head commit SHA
+              pr: ${{github.event.pull_request.number}}
+              # Optional, uploaded artifact name,
+              # will download all artifacts if not specified
+              # and extract them in respective subdirectories
+              # https://github.com/actions/download-artifact#download-all-artifacts
+              name: id
+              # Optional, search for the last workflow run whose stored an artifact named as in `name` input
+              # default false
+              search_artifacts: true
+
+         - name: Remove Stack
+           run: |
+              oci resource-manager stack delete --stack-id $(head -n 1 id.txt) --wait-for-state DELETED --wait-for-state FAILED --wait-interval-seconds 10 --force

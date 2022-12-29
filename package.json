@@ -1,0 +1,34 @@
+{
+   "name": "crossword",
+   "version": "1.0.0",
+   "private": true,
+   "workspaces": [
+      "frontend",
+      "backend",
+      "packages/*"
+   ],
+   "scripts": {
+      "prestart": "yarn generate",
+      "start": "NODE_ENV=development yarn --cwd backend start & yarn --cwd frontend start",
+      "prestart:prod": "yarn && yarn generate && yarn build",
+      "start:prod": "NODE_ENV=production yarn --cwd backend start:prod",
+      "start:backend": "NODE_ENV=development yarn --cwd backend start",
+      "start:frontend": "NODE_ENV=development yarn --cwd frontend start",
+      "build": "yarn --cwd frontend build",
+      "brokenbuild": "yarn --cwd frontend build && yarn --cwd backend build",
+      "generate": "yarn --cwd frontend generate && yarn --cwd backend generate"
+   },
+   "devDependencies": {
+      "@typescript-eslint/eslint-plugin": "^5.20.0",
+      "@typescript-eslint/parser": "^5.20.0",
+      "eslint": "^8.13.0",
+      "eslint-config-airbnb": "^19.0.4",
+      "eslint-config-prettier": "^8.5.0",
+      "eslint-plugin-import": "^2.26.0",
+      "eslint-plugin-jsx-a11y": "^6.5.1",
+      "eslint-plugin-prettier": "^4.0.0",
+      "eslint-plugin-react": "^7.29.4",
+      "eslint-plugin-react-hooks": "^4.4.0",
+      "prettier": "^2.6.2"
+   }
+}

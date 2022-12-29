@@ -1,0 +1,3 @@
+query Direction {
+   direction @client
+}

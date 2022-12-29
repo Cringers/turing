@@ -1,0 +1,39 @@
+---
+rows:
+   - 1-2--
+   - ..-..
+   - 34-56
+   - 7----
+   - 8----
+
+answers:
+   across:
+      - key: 1
+        clue: WoW UI extension
+        answer: ADDON
+      - key: 3
+        clue: Burn like a fire in..
+        answer: CAIRO
+      - key: 7
+        clue: _____ peace
+        answer: INNER
+      - key: 8
+        clue: as the League of Legends champion
+        answer: SINGE
+
+   down:
+      - key: 2
+        clue: Will Smith plays, as does Robin Williams (weird spelling)
+        answer: DJINN
+      - key: 3
+        clue: ___ white male
+        answer: CIS
+      - key: 4
+        clue: Nickname of a beloved Star Wars youngling
+        answer: ANI
+      - key: 5
+        clue: On the ___, to do frequently
+        answer: REG
+      - key: 6
+        clue: Iron, Copper, or even Diamond in Minecraft
+        answer: ORE

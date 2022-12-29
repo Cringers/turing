@@ -1,0 +1,10 @@
+schema: '../backend/typeDefs.ts'
+documents: './src/**/*.graphql'
+generates:
+  ./src/generated/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+
+    
