@@ -9,7 +9,6 @@ import * as cors from 'cors';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import { CONFIG } from '@crossword/config';
 import { AppDataSource } from '@crossword/db';
-import { crosswordParser } from '@crossword/parser';
 import { Crossword } from './entities/crossword';
 import { resolvers } from './resolvers';
 import { typeDefs } from './typeDefs';
@@ -83,10 +82,10 @@ console.log('Connecting to ATP database');
 async function start() {
    AppDataSource.initialize().then(async () => {
       const currentCrossword = CONFIG.CURRENT_CROSSWORD;
-      const xword: Crossword = crosswordParser(currentCrossword);
-      AppDataSource.manager.save(Crossword, xword);
+      //AppDataSource.manager.save(Crossword, xword);
 
       await startApolloServer(typeDefs, resolvers);
    });
 }
 start();
+
